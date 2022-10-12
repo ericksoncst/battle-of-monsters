@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import BattleOfMonsters from './BattleOfMonsters';
 import mockFetch from 'jest-fetch-mock';
 
-import monstersData from '../../../data/monsters.json';
+import monstersData from '../../../server/monsters.json';
 import { store } from '../../app/store';
 
 const battleOfMonstersFactory = async () => {

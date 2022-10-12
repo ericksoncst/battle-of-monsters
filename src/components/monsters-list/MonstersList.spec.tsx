@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react-native';
 import { Provider } from 'react-redux';
 import { store } from '../../app/store';
 import { MonstersList } from './MonstersList';
-import monstersData from '../../../data/monsters.json';
+import monstersData from '../../../server/monsters.json';
 import { setSelectedMonster } from '../../reducers/monsters/monsters.actions';
 
 const mockSetSelectedMonster = jest.fn();
