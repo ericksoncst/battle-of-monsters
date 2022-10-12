@@ -9,4 +9,5 @@ export const PageTitle = styled(Title)`
   font-size: 36px;
   color: ${colors.black};
   line-height: 42px;
+  margin-left: 20px;
 `;

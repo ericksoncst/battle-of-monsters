@@ -3,6 +3,7 @@ import { View, ScrollView } from 'react-native';
 import { Button } from 'react-native-paper';
 import { colors } from '../../constants/colors';
 
+// Styled Components
 export const PageContainer = styled(View)`
   display: flex;
   flex-direction: column;
@@ -10,7 +11,8 @@ export const PageContainer = styled(View)`
 `;
 
 export const BattleSection = styled(ScrollView)`
-  display: flex;
+  padding-left: 20px;
+  margin-top: 25px;
 `;
 
 interface ButtonProps {
@@ -21,7 +23,14 @@ export const StartBattleButton = styled(Button)`
   background-color: ${({ disabled }: ButtonProps) =>
     disabled ? colors.lightGreen : colors.darkGreen};
   border-radius: 5px;
-  height: 56px;
-  display: flex;
-  justify-content: center;
+  padding: 8px;
+  margin: 0 20px;
 `;
+
+// Paper Styles
+export const StartButtonStyles = {
+  fontSize: 18,
+  color: colors.white,
+  fontFamily: 'Roboto',
+  fontWeight: 'normal',
+};

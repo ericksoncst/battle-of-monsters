@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { TextStyle } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../app/hooks';
 import { MonsterBattleCard } from '../../components/monster-battle-card/MonsterBattleCard';
@@ -14,6 +15,7 @@ import {
   PageContainer,
   BattleSection,
   StartBattleButton,
+  StartButtonStyles,
 } from './BattleOfMonsters.styled';
 
 const BattleOfMonsters = () => {
@@ -43,8 +45,11 @@ const BattleOfMonsters = () => {
 
       <StartBattleButton
         color={colors.white}
+        dark={false}
         testID="start-battle-button"
         disabled={selectedMonster === null}
+        labelStyle={StartButtonStyles as TextStyle}
+        uppercase={false}
         onPress={handleStartBattleClick}>
         Start Battle
       </StartBattleButton>

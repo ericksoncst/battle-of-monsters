@@ -10,6 +10,7 @@ export const ListTitle = styled(Text)`
   font-size: 24px;
   line-height: 28px;
   margin-top: 20px;
+  margin-left: 20px;
   color: ${colors.black};
 `;
 
@@ -53,4 +54,5 @@ export const MonsterName = styled(Text)`
 export const MonstersSection = styled(ScrollView)`
   margin-top: 0px;
   display: flex;
+  padding-left: 20px;
 `;
