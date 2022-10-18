@@ -5,6 +5,7 @@ import { useAppDispatch } from '../../app/hooks';
 import { MonsterBattleCard } from '../../components/monster-battle-card/MonsterBattleCard';
 import { MonstersList } from '../../components/monsters-list/MonstersList';
 import { PageTitle } from '../../components/title/Title';
+import { WinnerDisplay } from '../../components/winner-display/WinnerDisplay';
 import { colors } from '../../constants/colors';
 import { fetchMonstersData } from '../../reducers/monsters/monsters.actions';
 import {
