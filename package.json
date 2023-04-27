@@ -61,5 +61,10 @@
     "setupFiles": [
       "./src/setupTests.ts"
     ]
+  },
+    "engines": {
+    "npm" : ">=8.0.0 <9.0.0",
+    "yarn": ">=1.22.0",
+    "node": ">=16.0.0 <17.0.0"
   }
 }
