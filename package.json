@@ -8,11 +8,7 @@
     "start": "react-native start",
     "test": "jest ./src",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "serve:data": "node server/index.js",
-    "test:challenge-1": "jest --config=jest.problem-solving.config.js ./problem-solving/challenge-1/index.spec.ts",
-    "test:challenge-2": "jest --config=jest.problem-solving.config.js ./problem-solving/challenge-2/index.spec.ts",
-    "test:challenge-3": "jest --config=jest.problem-solving.config.js ./problem-solving/challenge-3/index.spec.ts",
-    "test:all-challenges": "jest --config=jest.problem-solving.config.js ./problem-solving"
+    "serve:data": "node server/index.js"
   },
   "dependencies": {
     "@emotion/native": "^11.10.0",
