@@ -1,6 +1,7 @@
 import React from 'react';
 import { Monster } from '../../models/interfaces/monster.interface';
 import * as S from './MonsterBattleCard.styled';
+import ProgressBar from '../monster-progressbar/Progressbar';
 
 type MonsterCardProps = {
   monster?: Monster | null;
@@ -13,6 +14,10 @@ const MonsterBattleCard: React.FC<MonsterCardProps> = ({ title, monster }) => {
       <S.BattleMosterImage source={{uri: monster?.imageUrl}}  />
       <S.BattleMonsterTitle>{title}</S.BattleMonsterTitle>
       <S.BattleMonsterSeparator />
+      <ProgressBar title='HP' width={String(monster?.hp)} />
+      <ProgressBar title='Attack' width={String(monster?.attack)} />
+      <ProgressBar title='Defense' width={String(monster?.defense)} />
+      <ProgressBar title='Speed' width={String(monster?.speed)} />
     </S.BattleMonsterCard>
   );
 };

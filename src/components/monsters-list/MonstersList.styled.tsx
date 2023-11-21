@@ -37,9 +37,9 @@ export const MonsterCard = styled(Card)<MonsterCardProps>`
 `;
 
 export const Img = styled(Image)`
-  border-radius: 7px,
-  width: 136px,
-  height: 100px
+  border-radius: 7px;
+  width: 100%;
+  height: 100px;
 `;
 
 export const MonsterName = styled(Text)`
