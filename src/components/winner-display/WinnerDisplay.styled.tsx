@@ -16,5 +16,5 @@ export const WinnerText = styled(Text)`
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
-    line-height: '26px;
+    line-height: 26px;
 `;

@@ -19,11 +19,13 @@ import {
   StartButtonStyles,
 } from './BattleOfMonsters.styled';
 import { Monster } from '../../models/interfaces/monster.interface';
+import { MonsterService } from '../../reducers/monsters/monsters.service';
 
 const BattleOfMonsters = () => {
   const dispatch = useAppDispatch();
 
   const [ computerMonster, setComputerMonster ] = useState<Monster>()
+  const [ winner, setWinner ] = useState<string | undefined>()
   const monsters = useSelector(selectMonsters);
   const selectedMonster = useSelector(selectSelectedMonster);
   const availableMonsters: any = []
@@ -42,8 +44,10 @@ const BattleOfMonsters = () => {
     }
   }, [selectedMonster?.id]);
 
-  const handleStartBattleClick = () => {
-    // Fight!
+  const handleStartBattleClick = async () => {
+    const response = await MonsterService.postBattle({ monster1Id: selectedMonster?.id, monster2Id: computerMonster?.id});
+    setWinner(response.winner.name)
+
   };
 
   return (
@@ -54,10 +58,10 @@ const BattleOfMonsters = () => {
 
       <BattleSection horizontal>
         <MonsterBattleCard title={selectedMonster?.name || 'Player'} monster={selectedMonster} />
-        <MonsterBattleCard title="Computer" monster={computerMonster} />
+        <MonsterBattleCard title={computerMonster?.name || "Computer"} monster={computerMonster} />
       </BattleSection>
 
-      <StartBattleButton
+      {winner ? <WinnerDisplay text={winner} /> : <StartBattleButton
         color={colors.white}
         dark={false}
         testID="start-battle-button"
@@ -66,7 +70,7 @@ const BattleOfMonsters = () => {
         uppercase={false}
         onPress={handleStartBattleClick}>
         Start Battle
-      </StartBattleButton>
+      </StartBattleButton>}
     </PageContainer>
   );
 };
