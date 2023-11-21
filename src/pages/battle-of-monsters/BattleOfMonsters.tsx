@@ -7,7 +7,7 @@ import { MonstersList } from '../../components/monsters-list/MonstersList';
 import { PageTitle } from '../../components/title/Title';
 import { WinnerDisplay } from '../../components/winner-display/WinnerDisplay';
 import { colors } from '../../constants/colors';
-import { fetchMonstersData } from '../../reducers/monsters/monsters.actions';
+import { fetchMonstersData, setSelectedMonster } from '../../reducers/monsters/monsters.actions';
 import {
   selectMonsters,
   selectSelectedMonster,
@@ -42,7 +42,13 @@ const BattleOfMonsters = () => {
       const machineMonster = availableMonsters[availableMonsters.length * Math.random() | 0]
      setComputerMonster(machineMonster)
     }
-  }, [selectedMonster?.id]);
+
+    if(winner) setTimeout(() => {
+      setWinner(undefined)
+      dispatch(setSelectedMonster(null))
+      setComputerMonster(undefined)
+    }, 3000)
+  }, [selectedMonster?.id, winner]);
 
   const handleStartBattleClick = async () => {
     const response = await MonsterService.postBattle({ monster1Id: selectedMonster?.id, monster2Id: computerMonster?.id});

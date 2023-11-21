@@ -11,7 +11,7 @@ type MonsterCardProps = {
 const MonsterBattleCard: React.FC<MonsterCardProps> = ({ title, monster }) => {
   return (
     <S.BattleMonsterCard>
-      <S.BattleMosterImage source={{uri: monster?.imageUrl}}  />
+      {monster?.id ? <S.BattleMosterImage source={{uri: monster?.imageUrl}}  />: null}
       <S.BattleMonsterTitle>{title}</S.BattleMonsterTitle>
       {
         monster?.id ? <>

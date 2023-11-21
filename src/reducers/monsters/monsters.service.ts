@@ -8,7 +8,6 @@ const getAll = async (): Promise<Monster[]> =>
 
   const postBattle = async (data: MonsterBattleRequest): Promise<MonsterBattleResponse> => {
 
-    console.log('DATA',data)
     const response = await fetch(`${API_URL}/battle`, {
       method: 'POST',
       body: JSON.stringify(data),

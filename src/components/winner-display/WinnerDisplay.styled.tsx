@@ -9,6 +9,7 @@ export const WinnerDisplayContainer = styled(View)`
   elevation: 5;
   border-radius: 4px;
   padding: 17px 28px;
+  margin: 0px 20px;
 `;
 
 export const WinnerText = styled(Text)`
