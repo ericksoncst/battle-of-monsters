@@ -49,12 +49,17 @@ describe('BattleOfMonsters', () => {
       screen.getByTestId('start-battle-button').props.accessibilityState
         .disabled,
     ).toBeTruthy();
-    fireEvent(screen.getByTestId('monster-1'), 'press');
+    await waitFor(() =>{
+      fireEvent(screen.getByTestId('monster-1'), 'press');
+    })
     expect(
       screen.getByTestId('start-battle-button').props.accessibilityState
         .disabled,
     ).toBeFalsy();
-    fireEvent(screen.getByTestId('monster-1'), 'press');
+
+    await waitFor(() =>{
+      fireEvent(screen.getByTestId('monster-1'), 'press');
+    })
     expect(
       screen.getByTestId('start-battle-button').props.accessibilityState
         .disabled,
@@ -64,7 +69,12 @@ describe('BattleOfMonsters', () => {
   it('should start fight after click on button', async () => {
     await battleOfMonstersFactory();
     expect(screen.queryByTestId('monster-1')).not.toBeNull();
-    fireEvent(screen.getByTestId('monster-1'), 'press');
-    fireEvent(screen.getByTestId('start-battle-button'), 'press');
+    await waitFor(() =>{      
+      fireEvent(screen.getByTestId('monster-1'), 'press');
+    })
+
+    await waitFor(() =>{
+      fireEvent(screen.getByTestId('start-battle-button'), 'press');
+    })
   });
 });
