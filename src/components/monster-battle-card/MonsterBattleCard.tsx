@@ -13,11 +13,15 @@ const MonsterBattleCard: React.FC<MonsterCardProps> = ({ title, monster }) => {
     <S.BattleMonsterCard>
       <S.BattleMosterImage source={{uri: monster?.imageUrl}}  />
       <S.BattleMonsterTitle>{title}</S.BattleMonsterTitle>
+      {
+        monster?.id ? <>
       <S.BattleMonsterSeparator />
       <ProgressBar title='HP' width={String(monster?.hp)} />
       <ProgressBar title='Attack' width={String(monster?.attack)} />
       <ProgressBar title='Defense' width={String(monster?.defense)} />
       <ProgressBar title='Speed' width={String(monster?.speed)} />
+      </> : null
+      }
     </S.BattleMonsterCard>
   );
 };

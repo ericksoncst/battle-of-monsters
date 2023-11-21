@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { TextStyle } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../app/hooks';
@@ -18,16 +18,29 @@ import {
   StartBattleButton,
   StartButtonStyles,
 } from './BattleOfMonsters.styled';
+import { Monster } from '../../models/interfaces/monster.interface';
 
 const BattleOfMonsters = () => {
   const dispatch = useAppDispatch();
 
+  const [ computerMonster, setComputerMonster ] = useState<Monster>()
   const monsters = useSelector(selectMonsters);
   const selectedMonster = useSelector(selectSelectedMonster);
+  const availableMonsters: any = []
 
   useEffect(() => {
     dispatch(fetchMonstersData());
-  }, []);
+    if(selectedMonster?.id) {
+      monsters.filter(monster => {
+        if(monster.id !== selectedMonster.id) {
+          availableMonsters.push(monster)
+        }
+      })
+
+      const machineMonster = availableMonsters[availableMonsters.length * Math.random() | 0]
+     setComputerMonster(machineMonster)
+    }
+  }, [selectedMonster?.id]);
 
   const handleStartBattleClick = () => {
     // Fight!
@@ -41,7 +54,7 @@ const BattleOfMonsters = () => {
 
       <BattleSection horizontal>
         <MonsterBattleCard title={selectedMonster?.name || 'Player'} monster={selectedMonster} />
-        <MonsterBattleCard title="Computer" />
+        <MonsterBattleCard title="Computer" monster={computerMonster} />
       </BattleSection>
 
       <StartBattleButton
