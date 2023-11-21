@@ -1,20 +1,19 @@
 import React from 'react';
 import { Monster } from '../../models/interfaces/monster.interface';
-import {
-  BattleMonsterCard,
-  BattleMonsterTitle,
-} from './MonsterBattleCard.styled';
+import * as S from './MonsterBattleCard.styled';
 
 type MonsterCardProps = {
   monster?: Monster | null;
   title?: string;
 };
 
-const MonsterBattleCard: React.FC<MonsterCardProps> = ({ title }) => {
+const MonsterBattleCard: React.FC<MonsterCardProps> = ({ title, monster }) => {
   return (
-    <BattleMonsterCard>
-      <BattleMonsterTitle>{title}</BattleMonsterTitle>
-    </BattleMonsterCard>
+    <S.BattleMonsterCard>
+      <S.BattleMosterImage source={{uri: monster?.imageUrl}}  />
+      <S.BattleMonsterTitle>{title}</S.BattleMonsterTitle>
+      <S.BattleMonsterSeparator />
+    </S.BattleMonsterCard>
   );
 };
 

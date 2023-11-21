@@ -40,7 +40,7 @@ const BattleOfMonsters = () => {
       <MonstersList monsters={monsters} />
 
       <BattleSection horizontal>
-        <MonsterBattleCard title={selectedMonster?.name || 'Player'} />
+        <MonsterBattleCard title={selectedMonster?.name || 'Player'} monster={selectedMonster} />
         <MonsterBattleCard title="Computer" />
       </BattleSection>
 
