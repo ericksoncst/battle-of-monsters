@@ -1,4 +1,4 @@
-import { API_URL } from '../../constants/env';
+import API_URL from '../../constants/env';
 import { Monster, MonsterBattleRequest, MonsterBattleResponse } from '../../models/interfaces/monster.interface';
 
 const getAll = async (): Promise<Monster[]> =>
